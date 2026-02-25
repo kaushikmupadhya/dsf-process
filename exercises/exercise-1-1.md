@@ -5,7 +5,7 @@ ___
 This exercise looks at how to use the Java debugger of your IDE to remotely debug the execution of a process plugin.
 
 ## Introduction
-The DSF FHIR server and the DSF BPE server applications are written in Java and as such are executed on a headless JRE 21 within their docker containers. Command line arguments can be passed to the JVM inside the [ghcr.io/datasharingframework/fhir](https://github.com/datasharingframework/dsf/pkgs/container/fhir) and [ghcr.io/datasharingframework/bpe](https://github.com/datasharingframework/dsf/pkgs/container/bpe) docker images by specifying the environment variable `EXTRA_JVM_ARGS`. This can be used for example to configure the minimum and maximum heap of the JVM; but can also be used to specify a remote debugging port, which we will use in this exercise.
+The DSF FHIR server and the DSF BPE server applications are written in Java and as such are executed on a headless JRE 25 within their docker containers. Command line arguments can be passed to the JVM inside the [ghcr.io/datasharingframework/fhir](https://github.com/datasharingframework/dsf/pkgs/container/fhir) and [ghcr.io/datasharingframework/bpe](https://github.com/datasharingframework/dsf/pkgs/container/bpe) docker images by specifying the environment variable `EXTRA_JVM_ARGS`. This can be used for example to configure the minimum and maximum heap of the JVM; but can also be used to specify a remote debugging port, which we will use in this exercise.
 
 An `EXTRA_JVM_ARGS` environment variable is already configured for all DSF FHIR server and DSF BPE server docker containers in the tutorial docker-compose test setup. Take a look at the [docker-compose.yml](https://github.com/datasharingframework/dsf-process-tutorial/blob/main/dev-setup/docker-compose.yml) file to look up the port numbers specified for the different DSF FHIR and DSF BPE servers.
 
@@ -26,7 +26,7 @@ An `EXTRA_JVM_ARGS` environment variable is already configured for all DSF FHIR 
 
 4. Create a debug breakpoint in the first line of the `DicTask` class `execute` method. 
 5. Start your previously defined remote Java debugger in your IDE.
-6. Execute the `TutorialExampleStarter` class to start `exampleorg_dicProcess`.
+6. Start `exampleorg_dicProcess` either via the DSF FHIR server UI using the Draft Task created in [exercise 1](exercise-1.md) or cURL.
 7. Use your IDE's debugger to step through the code of the `DicTask` class `execute` method.
 
 ## Hint
